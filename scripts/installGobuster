@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# This script installs gobuster from an ubuntu repository server
-
 if [ `/usr/bin/id -u` != "0" ]; then
   echo "Please run the script as root!"
 else
-  wget -q http://de.archive.ubuntu.com/ubuntu/pool/universe/g/gobuster/gobuster_1.4.1-1_amd64.deb
-  dpkg -i gobuster_1.4.1-1_amd64.deb
-  rm gobuster_1.4.1-1_amd64.deb
-  apt install -f -y
+  apt install -y p7zip
+  wget https://github.com/OJ/gobuster/releases/download/v2.0.1/gobuster-linux-amd64.7z -O /tmp/gobuster-linux-amd64.7z
+  7z x /tmp/gobuster-linux-amd64.7z -o/tmp
+  mv /tmp/gobuster-linux-amd64/gobuster /opt/gobuster
+  chmod +x /opt/gobuster
+  ln -s /opt/gobuster /usr/bin/gobuster
+  rm -rf /tmp/gobuster-linux-amd64 /tmp/gobuster-linux-amd64.7z
 fi

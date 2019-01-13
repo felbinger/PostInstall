@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# This script installs discord
-
 if [ `/usr/bin/id -u` != "0" ]; then
   echo "Please run the script as root!"
 else

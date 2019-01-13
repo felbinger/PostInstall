@@ -1,29 +1,28 @@
 #!/bin/bash
 
-# Install burpsuite
-
 if [ `/usr/bin/id -u` != "0" ]; then
   echo "Please run the script as root!"
 else
-  #TODO Not working - "tail didn't work. This could be caused by exhausted disk space. Aborting."
-  #wget -qO- "https://portswigger.net/burp/releases/download?productid=100&version=1.7.23&type=linux" | bash
+  mkdir /opt/burpsuite
+  # download burpsuite.jar
+  wget "https://portswigger.net/burp/releases/download?product=community&version=1.7.36&type=jar" -O /opt/burpsuite/burpsuite.jar
 
-  wget -q "https://portswigger.net/burp/releases/download?productid=100&version=1.7.23&type=linux" -O /tmp/burpsuite.sh
-  bash /tmp/burpsuite.sh
-  #TODO user interaction required - no text/unattended mode?
+  # create starter
+  echo '#!/bin/bash' > "/opt/burpsuite/burpsuite.sh"
+  echo '$(which java) -jar /opt/burpsuite/burpsuite.jar' >> "/opt/burpsuite/burpsuite.sh"
+  chmod +x "/opt/burpsuite/burpsuite.sh"
+  ln "/opt/burpsuite/burpsuite.sh" "/usr/bin/burpsuite"
 
-  mv /opt/burpsuite/BurpSuiteFree /opt/burpsuite/burpsuite
-  mv /opt/burpsuite/BurpSuiteFree.png /opt/burpsuite/burpsuite.png
+  # get icon
+  wget "https://www.macupdate.com/images/icons256/38118.png" -O /opt/burpsuite/burpsuite.png
 
-  ln /opt/burpsuite/burpsuite /usr/bin/burpsuite
-
-	location="/opt/burpsuite/burpsuite.desktop"
-	echo "#!/usr/bin/env xdg-open" > $location
-	echo "[Desktop Entry]" >> $location
-	echo "Type=Application" >> $location
-	echo "Name=Burp Suite" >> $location
-	echo 'Exec=/bin/sh "/opt/burpsuite/burpsuite"' >> $location
-	echo "Icon=/opt/burpsuite/.install4j/burpsuite.png" >> $location
-	echo "Categories=Application;" >> $location
-	ln $location /usr/share/applications/burpsuite.desktop
+  # create desktop launcher (burpsuite.desktop)
+  echo "#!/usr/bin/env xdg-open" > "/opt/burpsuite/burpsuite.desktop"
+  echo "[Desktop Entry]" >> "/opt/burpsuite/burpsuite.desktop"
+  echo "Type=Application" >> "/opt/burpsuite/burpsuite.desktop"
+  echo "Name=Burp Suite" >> "/opt/burpsuite/burpsuite.desktop"
+  echo 'Exec=/bin/sh "/opt/burpsuite/burpsuite.sh"' >> "/opt/burpsuite/burpsuite.desktop"
+  echo "Icon=/opt/burpsuite/burpsuite.png" >> "/opt/burpsuite/burpsuite.desktop"
+  echo "Categories=Application;" >> "/opt/burpsuite/burpsuite.desktop"
+  ln "/opt/burpsuite/burpsuite.desktop" "/usr/share/applications/burpsuite.desktop"
 fi

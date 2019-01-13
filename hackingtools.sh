@@ -14,6 +14,7 @@ else
   # gui tools
   bash scripts/installWireshark.sh
   bash scripts/installAngryIPScanner.sh
+  bash scripts/installBurpsuite.sh
   apt install -y ettercap-graphical
 
   # DSniff
@@ -27,21 +28,12 @@ else
 
   # social-engeneering-toolkit
   #bash scripts/installSET.sh
+  
+  # Metasploit Framework
+  #bash scripts/installMetasploit.sh
 
-  # fierce
-  #bash scripts/installFierce.sh
-
-  # BurpSuit -> TODO user interaction required, untested
-	bash scripts/installBurpsuite.sh
-
-  # Nikto
-  # git clone https://github.com/sullo/nikto.git /opt/nikto
-
-	# Metasploit Framework
-	#bash scripts/installMetasploit.sh
-
-	# Armitage
-	#bash scripts/installArmitage.sh
+  # Armitage
+  #bash scripts/installArmitage.sh
 
   ### Wordlists ###
   mkdir $WORDLIST_DIR

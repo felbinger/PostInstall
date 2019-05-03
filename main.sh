@@ -1,110 +1,58 @@
 #!/bin/bash
 
 bootlogo="img/bootlogos/nsa-monitored-device.png"
-username="user"
-wallpaper="img/wallpapers/black.png"
 
 if [ `/usr/bin/id -u` != "0" ]; then
   echo "Please run the script as root!"
 else
+  ### Add Software Repositories ###
+  apt-add-repository -y ppa:obsproject/obs-studio
+  curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+  echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | tee -a /etc/apt/sources.list.d/signal-xenial.list
+
   ### Install Updates ###
   apt update
   apt upgrade -y
 
   ### Install Software ###
-  apt install -y gcc git make build-essential linux-headers-$(uname -r) htop youtube-dl ufw whois screen rsync
-  apt install -y python python-setuptools python-pip python-tk python3 python3-setuptools python3-pip python3-tk
+  apt purge -y pix onboard gnome-calendar rhythmbox synaptic timeshift redshift xterm hexchat gufw mintbackup
+  apt install -y git youtube-dl ufw whois rsync
+  apt install -y python3 python3-setuptools python3-pip
 
   # GUI Software
-  apt install -y terminator vlc gparted keepass2 cherrytree
-
-  bash scripts/installAtom.sh     # atom ide
-
-  bash scripts/installGstreamer.sh # GStreamer Codecs
-
-  bash scripts/installGrubCustomizer.sh # gui tool to edit grub configuration
-  #apt install -y gqrx-sdr     # software defined radio
-  apt install -y kdenlive     # video editing tool
-  apt install -y audacity     # audio recoding and editing
-  #apt install -y freecad     # 3d cad tool
-
-  # Network Manager Plugins for OpenVPN/VPNC
+  apt install -y terminator vlc gparted keepassxc audacity sqlitebrowser
   apt install -y network-manager-vpnc-gnome network-manager-openvpn-gnome
 
-  apt install -y sqlitebrowser # gui tool for sqlite
+  # Google Chrome
+  bash scripts/installGoogleChrome.sh
 
-  # VirtualBox and management gui for qemu/kvm
-  apt install -y virtualbox-qt virt-manager
-
-
-  # roccat-tools          -> drivers and software utilitie for roccat hardware
-  #bash scripts/installRoccatSoftware.sh
+  # GStreaner
+  apt install -y libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools
 
   # TeamViewer
   bash scripts/installTeamviewer.sh
 
-  # AnyDesk
-  bash scripts/installAnyDesk.sh
+  # Grub Customizer
+  bash scripts/installGrubCustomizer.sh
 
-  # Discord
-  bash scripts/installDiscord.sh
+  # Virtual Machines
+  apt install -y virtualbox-qt virt-manager
 
-  # USB Cryptformat
-  #bash scripts/installUSBCryptformat.sh
-
-  # XAMPP
-  #bash scripts/installXAMPP.sh
+  # Atom
+  bash scripts/installAtom.sh
 
   # Telegram
   bash scripts/installTelegram.sh
 
   # Signal
-  bash scripts/installSignal.sh
-
-  # Tor Browser
-  #bash scripts/installTorBrowser.sh
-
-  # Google Chrome
-  bash scripts/installGoogleChrome.sh
-
-  # Bootstrap Studio - license required
-  #bash scripts/installBootstrapStudio.sh
-
-  # Steam
-  # bash scripts/installSteam.sh
+  apt install signal-desktop
 
   # Open Broadcaster Studio
-  bash scripts/installOpenBroadcasterStudio.sh
-
-  # Docker
-  #bash scripts/installDocker.sh
-
-  # Spotify
-  #bash scripts/installSpotify.sh
-
-  # Arduino IDE TODO untested
-  #bash scripts/installArduinoIDE.sh $username
-
-  # Eclipse TODO untested
-  #bash scripts/installEclipse.sh $username
-
-  # OracleJDK for Eclipse Plugins and JavaFX support TODO disabled
-  #bash scripts/installOracleJava.sh
-
-  # Make sure to check the file before execution. Uncomment the thing you would like to install.
-  bash hackingtools.sh
-
-  # TeamSpeak 3 -> TODO user interaction required
-  #bash scripts/installTeamSpeak3.sh
-
-
+  apt install -y ffmpeg obs-studio
 
   # Download password generator string and safe it to /usr/bin
   bash scripts/downloadGenpw.sh
 
   # Change the plymouth boot logo
   bash scripts/changeBootlogo.sh $bootlogo
-
-  # Change the wallpaper
-  #bash scripts/changeWallpaper.sh $wallpaper
 fi

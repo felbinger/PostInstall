@@ -7,7 +7,7 @@ else
   # download burpsuite.jar
   wget "https://portswigger.net/burp/releases/download?product=community&version=1.7.36&type=jar" -O /opt/burpsuite/burpsuite.jar
 
-  # create starter
+  # start script
   echo '#!/bin/bash' > "/opt/burpsuite/burpsuite.sh"
   echo '$(which java) -jar /opt/burpsuite/burpsuite.jar' >> "/opt/burpsuite/burpsuite.sh"
   chmod +x "/opt/burpsuite/burpsuite.sh"

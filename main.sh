@@ -15,7 +15,7 @@ else
   apt upgrade -y
 
   ### Install Software ###
-  apt purge -y pix onboard gnome-calendar rhythmbox synaptic timeshift redshift xterm hexchat gufw mintbackup
+  apt purge -y pix onboard gnome-calendar rhythmbox synaptic redshift xterm hexchat gufw mintbackup
   apt install -y git youtube-dl ufw whois rsync
   apt install -y python3 python3-setuptools python3-pip
 

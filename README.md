@@ -7,6 +7,12 @@ Backup your Data, don't forget the following:
 * Mozilla Thunderbird/Firefox, Google Chrome profiles (if you do this, you don't have to reconfigurate everthing like E-Mails, Addons, ...)
 * Remmina Configs (`~/.local/share/remmina`)
 
+## Installation
+
+![Installation](./img/install_1.png)  
+
+![Partitioning (without Swap)](./img/install_2_without_swap.png)  
+
 ## Post Install
 * Software Sources - change to the best performing repository servers
   ![Software Sources](./img/software_sources.png)  
@@ -33,25 +39,34 @@ Backup your Data, don't forget the following:
 
 ---
 
-* System Settings
-  * Date and Time  
-  ![Settings: Date and Time](./img/settings_date_time.png)
+* Date and Time  
+![Settings: Date and Time](./img/settings_date_time.png)
 
-  * Mouse and Touchpad  
 
-  * Desktop  
-  ![Settings: Desktop](./img/settings_desktop.png)
+* Mouse and Touchpad (only if the device has a touchpad)
 
-  * Applets  
 
-  * Sound  
+* Desktop  
+![Settings: Desktop](./img/settings_desktop.png)
 
-  * Printers  
 
-  * Preferred Applications  
-  ![Settings: Preferred Applications](./img/settings_preferred_applications.png)
+* Applets  
+  * Install and add: CPU Temperatur Indicator
 
-  * Startup Applications  
+
+* Sound  
+  * Disable all system sounds (e. g. starting cinnamon) or turn volume down to 0 %
+
+
+* Printers  
+  * Add your printers
+
+
+* Preferred Applications  
+![Settings: Preferred Applications](./img/settings_preferred_applications.png)
+
+
+* Startup Applications  
 
 ---
 

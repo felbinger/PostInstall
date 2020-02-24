@@ -20,7 +20,7 @@ else
   apt install -y python3 python3-setuptools python3-pip
 
   # GUI Software
-  apt install -y terminator vlc gparted keepassxc audacity sqlitebrowser
+  apt install -y terminator vlc gparted keepassxc audacity sqlitebrowser nemo-seahorse
   apt install -y network-manager-vpnc-gnome network-manager-openvpn-gnome
 
   # Google Chrome
@@ -35,7 +35,7 @@ else
   # Grub Customizer
   bash scripts/installGrubCustomizer.sh
 
-  # Virtual Machines
+  # Virtual Machine Hypervisors
   apt install -y virtualbox-qt virt-manager
 
   # Atom

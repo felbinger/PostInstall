@@ -27,7 +27,7 @@ if [[ -z ${GET_WORDLISTS} ]] || [[ ${GET_WORDLISTS} == "Y" ]] || [[ ${GET_WORDLI
 fi
 
 if [[ ! -z ${IN_WORDLIST_DIR} ]]; then
-  sed "s#${WORDLIST_DIR}#${IN_WORDLIST_DIR}#g" ./gobuster.sh #-i
+  sed -i "s#${WORDLIST_DIR}#${IN_WORDLIST_DIR}#g" ./gobuster.sh
 fi
 
 sudo cp ./gobuster.sh /usr/local/bin/gobuster

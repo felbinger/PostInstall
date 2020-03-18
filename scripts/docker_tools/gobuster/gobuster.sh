@@ -2,11 +2,13 @@
 
 # usage: gobuster [options]
 
+WORDLIST_DIR="/opt/wordlists"
+
 DOCKER_ARGS=(
     '--rm'
     '--interactive'
     '--tty'
-    "--volume /opt/wordlists:/wordlists"
+    "--volume ${WORDLIST_DIR}:${WORDLIST_DIR}"
 )
 DOCKER_IMAGE="devalias/gobuster"
 TOOL_ARGS=${@}

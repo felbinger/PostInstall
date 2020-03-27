@@ -9,6 +9,7 @@ DOCKER_ARGS=(
     '--interactive'
     '--tty'
     "--volume ${WORDLIST_DIR}:${WORDLIST_DIR}"
+    "--volume /etc/hosts:/etc/hosts"
 )
 DOCKER_IMAGE="devalias/gobuster"
 TOOL_ARGS=${@}

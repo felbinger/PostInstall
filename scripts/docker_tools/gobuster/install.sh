@@ -3,10 +3,10 @@
 WORDLISTS=(
   "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-lowercase-2.3-small.txt"
   "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-lowercase-2.3-medium.txt"
-  "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-lowercase-2.3-large.txt"
+  "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-lowercase-2.3-big.txt"
   "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-2.3-small.txt"
   "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-2.3-medium.txt"
-  "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-2.3-large.txt"
+  "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-2.3-big.txt"
   "https://raw.githubusercontent.com/diasdavid/node-dirbuster/master/lists/apache-user-enum-1.0.txt"
   "https://raw.githubusercontent.com/diasdavid/node-dirbuster/master/lists/apache-user-enum-2.0.txt"
 )

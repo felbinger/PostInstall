@@ -1,4 +1,4 @@
-# Linux Mint 19.3 Installation Checklist
+# Linux Mint 20 Installation Checklist
 
 ## Pre Install
 Backup your Data, don't forget the following:
@@ -10,7 +10,7 @@ Backup your Data, don't forget the following:
 ## Installation
 
 The installation is really straight forward. I suggest installing the third party software, encrypt the whole system and the home directory for an extra layer of security.
-![1](./img/install_1.png)  
+![1](./img/install_1.png)
 
 ![2](./img/install_2.png)
 
@@ -52,7 +52,3 @@ After I added my printers, configured my preferred and startup applications I ex
 
 ![Settings: Preferred Applications](./img/settings_preferred_applications.png)
 
-
-### Change the Bootlogo
-To change the bootlogo just execute the bash script in `scripts/changeBootlogo.sh path/to/new/bootlogo.png`
-Your bootlogo should have a size arround 200 x 200 pixels. There are two examples of the logo in `ìmg/bootlogos/`

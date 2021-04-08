@@ -32,7 +32,8 @@ else
   bash scripts/installSignal.sh
 
   # Open Broadcaster Studio
-    bash scripts/installOBS.sh
+  # bash scripts/installOBS.sh
+  apt-get install -y obs-studio
 
   # Download password generator string and safe it to /usr/bin
   bash scripts/downloadGenpw.sh

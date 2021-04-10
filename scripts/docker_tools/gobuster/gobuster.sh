@@ -14,4 +14,5 @@ DOCKER_ARGS=(
 DOCKER_IMAGE="devalias/gobuster"
 TOOL_ARGS=${@}
 
+set -x
 docker run ${DOCKER_ARGS[@]} ${DOCKER_IMAGE} ${TOOL_ARGS[@]}

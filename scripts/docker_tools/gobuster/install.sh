@@ -1,5 +1,15 @@
 #!/bin/bash
 
+GOBUSTER_SCRIPT="https://raw.githubusercontent.com/felbinger/PostInstall/master/scripts/docker_tools/gobuster/gobuster.sh"
+
+# make sure the gobuster script is there
+if [[ ! -f "$(pwd)/gobuster.sh" ]]; then
+  if [[ -z $(which wget) ]]; then
+    sudo apt install -y wget
+  fi
+  wget ${GOBUSTER_SCRIPT}
+fi
+
 WORDLISTS=(
   "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-lowercase-2.3-small.txt"
   "https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-lowercase-2.3-medium.txt"

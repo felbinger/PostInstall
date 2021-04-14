@@ -14,7 +14,7 @@ apt install -y git whois \
 
 # GUI Software
 apt install -y terminator vlc gparted keepassxc grub-customizer \
-  audacity sqlitebrowser nemo-seahorse xplayer obs-studo \
+  audacity sqlitebrowser nemo-seahorse xplayer obs-studio \
   network-manager-vpnc-gnome network-manager-openvpn-gnome telegram-desktop chromium
 
 # GStreaner
